@@ -5,19 +5,18 @@ using UnityEngine;
 public class Moneda : MonoBehaviour
 {
     private bool interectable;
-
+    
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && interectable)
+        if (Input.GetKeyDown(KeyCode.E) && interectable)
         {
-            //GameManager.instance.AddCoin();
             Destroy(gameObject);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player"))
         {
             interectable = true;
         }
@@ -27,6 +26,7 @@ public class Moneda : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
+
             interectable = false;
         }
     }

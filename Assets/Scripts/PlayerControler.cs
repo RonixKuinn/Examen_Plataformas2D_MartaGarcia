@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     private Rigidbody2D characterRigidbody;
-    //public static Animator characterAnimator;
+    public static Animator characterAnimator;
     private float inputHorizontal;
     [SerializeField] private float characterSpeed = 4.5f;
     [SerializeField] private float jumpForce = 8;
@@ -13,7 +13,7 @@ public class PlayerControler : MonoBehaviour
     void Awake()
     {
         characterRigidbody = GetComponent<Rigidbody2D>();
-        //characterAnimator = GetComponent<Animator>();
+        characterAnimator = GetComponent<Animator>();
     }
 
     void Update()
@@ -31,22 +31,16 @@ public class PlayerControler : MonoBehaviour
         if (inputHorizontal < 0)
         {
             transform.rotation = Quaternion.Euler(0, 100, 0);
-            //anim.SetBool("IsRunning", true);s
         }
         else if (inputHorizontal > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            //anim.SetBool("IsRunning", true);
         }
-        /*else
-        {
-            anim.SetBool("IsRunning", false);
-        }*/
     }
 
     void Jump()
     {
         characterRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        //characterAnimator.SetBool("isjumping", true);
+        characterAnimator.SetBool("Jump", true);
     }
 }

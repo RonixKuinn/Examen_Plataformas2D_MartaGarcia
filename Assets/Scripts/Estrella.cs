@@ -10,13 +10,13 @@ public class Estrella : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && interectable)
+        if(Input.GetKeyDown(KeyCode.E) && interectable)
         {
-            SceneManager.LoadScene("Victory");
+            SceneManager.LoadScene("Victoria");
         }
     }
 
-    void InTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.gameObject.CompareTag("Player"))
         {
@@ -26,7 +26,7 @@ public class Estrella : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if(collider.gameObject.CompareTag("Player"))
         {
             interectable = false;
         }
